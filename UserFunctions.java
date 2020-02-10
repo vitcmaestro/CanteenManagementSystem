@@ -104,7 +104,7 @@ class UserFunctions {
         order[count] = Integer.parseInt(br.readLine());
         System.out.println("Enter the count you want");
         c[count] = Integer.parseInt(br.readLine());
-        while((fm[order[count]-1].equals("u") && (c[count]<0 || c[count]>fm[order[count]-1].count)) || (c[count]<0) || (c[count] > Integer.parseInt(fm[order[count]-1].max)) || (c[count] > fm[order[count]-1].count))
+        while((fm[order[count]-1].equals("u") && (c[count]<0 || c[count]>fm[order[count]-1].count)) || (c[count]<0) || (c[count] > getNumeric(fm[order[count]-1].max)) || (c[count] > fm[order[count]-1].count))
         {
             System.out.println("Item request count exceeded or less than zero, try again!!!");
             c[count] = Integer.parseInt(br.readLine());
@@ -255,10 +255,13 @@ class UserFunctions {
         return res;
     }
 
-    
-
-    
-
-    
+    private int getNumeric(String max) {
+        int res =0;
+        for(int i=0;i<max.length();i++)
+        {
+            res = (res*10)+ (int)(max.charAt(i)-48);
+        }
+        return res;
+    }
     
 }
